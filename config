@@ -73,6 +73,7 @@ workspace 3 output $primary_screen
 workspace 4 output $primary_screen
 workspace 5 output $primary_screen
 workspace 6 output $secondary_screen
+workspace 10 output $secondary_screen
 
 
 # ============================================================================
@@ -308,7 +309,7 @@ bindsym $mod+r mode "resize"
 assign [app_id="foot"] 3
 assign [app_id="thunar"] 4
 assign [app_id="librewolf"] 1
-assign [app_id="org.keepassxc.KeePassXC"] 6
+assign [app_id="org.keepassxc.KeePassXC"] 10
 
 # ============================================================================
 # STATUS BAR (BUMBLEBEE-STATUS)
