@@ -191,7 +191,8 @@ input "1267:91:Elan_Touchpad" {
     natural_scroll enabled   # Natural (reverse) scrolling
     middle_emulation enabled # Middle-click with two fingers
 }
-
+input "type:keyboard" xkb_options caps:swapescape
+input "type:keyboard" xkb_layout "pl"
 # ============================================================================
 # KEY BINDINGS (WINDOW MANAGEMENT, LAUNCHERS, ETC.)
 # ============================================================================
@@ -199,7 +200,6 @@ input "1267:91:Elan_Touchpad" {
 # $mod is your main modifier key (usually the Windows key).
 # Customize these shortcuts as you like.
 # --- Basic ---
-input "type:keyboard" xkb_options caps:swapescape
 
 bindsym $mod+Return exec $term
 bindsym $mod+q kill
