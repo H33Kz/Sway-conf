@@ -178,7 +178,8 @@ exec swayidle -w \
     timeout 1200 'swaymsg "output * power off"' \
     timeout 1200 'systemctl suspend' \
     resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -c $bg'
+    before-sleep 'swaylock -f -c $bg' \
+	after-resume 'systemctl restart logid.service'
 
 # ============================================================================
 # INPUT DEVICE CONFIGURATION (TOUCHPAD/MOUSE)
@@ -200,8 +201,8 @@ input "type:keyboard" xkb_layout "pl"
 #
 # $mod is your main modifier key (usually the Windows key).
 # Customize these shortcuts as you like.
-# --- Basic ---
 
+# --- Basic ---
 bindsym $mod+Return exec $term
 bindsym $mod+q kill
 bindsym $mod+y exec $browser
@@ -209,11 +210,14 @@ bindsym $mod+p exec keepassxc
 bindsym $mod+t exec $file_browser
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+c reload
+
+# --- PowerManagement ---
 bindsym Ctrl+Alt+L exec sway exit
 bindsym Ctrl+Alt+P exec poweroff
 bindsym Ctrl+Alt+R exec reboot
 bindsym $mod+Backspace exec swaylock -f -c $bg
 bindsym $mod+Shift+Backspace exec swaylock -f -c $bg && systemctl suspend
+
 floating_modifier $mod normal
 
 # --- Focus movement (Vim-style and arrows) ---
@@ -267,7 +271,7 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
