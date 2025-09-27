@@ -1,44 +1,9 @@
 # ============================================================================
-# EASY ONE-FILE SWAY CONFIGURATION FOR LINUX MINT: MintySway
-# ============================================================================
-#
-# This file configures the Sway window manager—a tiling Wayland compositor.
-# Place this file at ~/.config/sway/config to use it.
-#
-# For the official manual, run:      man 5 sway
-# Sway Wiki and guides:              https://github.com/swaywm/sway/wiki
-#
-# This config is designed to be easy to read and customize.
-# Comments explain what each section does and what you may want to change.
-#
-# ============================================================================
 # DEPENDENCIES - REQUIRED PACKAGES
 # ============================================================================
 #
-# Before running Sway, install these packages (Debian/Ubuntu/Mint):
-#   sudo apt update && sudo apt install \
-#     sway swaylock swayidle foot mako fuzzel brightnessctl \
-#     pulseaudio-utils bumblebee-status xdg-desktop-portal-wlr grim slurp \
-#     wl-clipboard network-manager ddcutil gammastep blueman
-#
-# What these do:
-# - sway:              The window manager itself
-# - swaylock:          Locks your screen
-# - swayidle:          Handles auto-locking and screen blanking
-# - foot:              Terminal emulator (lightweight, Wayland-native)
-# - mako:              Notification daemon (shows pop-up notifications)
-# - fuzzel:            Application launcher (like dmenu/rofi)
-# - brightnessctl:     Controls screen brightness
-# - pulseaudio-utils:  Audio control
-# - bumblebee-status:  Status bar info (battery, network, etc.)
-# - xdg-desktop-portal-wlr: Wayland portal for screenshots, sharing, etc.
-# - grim + slurp:      Screenshot utilities
-# - wl-clipboard:      Clipboard management
-# - network-manager:   Network management
-# - ddcutil:           Monitor hardware control (if supported)
-# - gammastep:         Night light (warms/cools screen color)
-# - blueman:           Bluetooth tray applet
-#
+# sudo pacman -Sy sway swayidle swaybg mako fuzzel foot ddcutil xorg-xwayland thunar grim slurp network-manager blueman gammastep
+# yay bumblebee-status
 #
 # ============================================================================
 # DEVICE NAMES
