@@ -139,12 +139,12 @@ output $secondary_screen bg ~/.config/sway/background2.jpg fill
 # Locks screen after 5 min, turns off display after 10 min, locks before sleep.
 # Change timeouts (in seconds) as needed.
 exec swayidle -w \
-    timeout 300 'swaylock -f -c $bg' \
-    timeout 1200 'swaymsg "output * power off"' \
-    timeout 1200 'systemctl suspend' \
-    resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -c $bg' \
-	after-resume 'systemctl restart logid.service'
+    timeout 600 'swaylock -f -c $bg' 
+
+    # timeout 1200 'swaymsg "output * power off"' \
+    # timeout 1200 'systemctl suspend' \
+    # resume 'swaymsg "output * power on"' \
+    # before-sleep 'swaylock -f -c $bg' \
 
 # ============================================================================
 # INPUT DEVICE CONFIGURATION (TOUCHPAD/MOUSE)
@@ -301,7 +301,7 @@ bar {
        inactive_workspace  #$bg #$bg #$fg
        urgent_workspace    #$critical_bg #$critical_bg #$fg
     }
-    status_command bumblebee-status -m pomodoro cpu memory pasink pasource battery network date time -p interval=0.5 time.format="%H:%M" memory.format="{used}/{total}"  -t solarized
+    status_command bumblebee-status -m pomodoro cpu memory pasink pasource battery network date time -p interval=0.5 date.format="%d/%m/%y" time.format="%H:%M" memory.format="{used}/{total}"  -t solarized
 
     gaps 4
 }
