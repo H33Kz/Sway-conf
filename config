@@ -2,7 +2,7 @@
 # DEPENDENCIES - REQUIRED PACKAGES
 # ============================================================================
 #
-# sudo pacman -Sy sway swayidle swaybg mako fuzzel foot ddcutil xorg-xwayland thunar grim slurp network-manager blueman gammastep
+# sudo pacman -Sy sway swayidle swaybg mako fuzzel foot ddcutil xorg-xwayland thunar grim slurp network-manager blueman gammastep btop fastfetch nnn
 # yay bumblebee-status
 #
 # ============================================================================
@@ -21,11 +21,11 @@
 # Set scaling for your monitor (e.g., 2 for 4K screens). Default is 1.
 # NOTE: Replace 'eDP-1' with your display name from 'swaymsg -t get_outputs'
 
-#Laptop settings
+#Laptop settings - comment while on desktop
 #output eDP-1 scale 1
 # set $primary_screen eDP-1
 
-#Desktop settings
+#Desktop settings - comment while on laptop
 output DP-2 pos 0 0 scale 1 res 3440x1440@164.999Hz
 output DP-3 pos 3440 0 scale 1 transform 270
 
@@ -37,8 +37,11 @@ workspace 2 output $secondary_screen
 workspace 3 output $primary_screen
 workspace 4 output $primary_screen
 workspace 5 output $primary_screen
-workspace 6 output $secondary_screen
-workspace 10 output $secondary_screen
+workspace 6 output $primary_screen
+workspace 7 output $primary_screen
+workspace 8 output $primary_screen
+workspace 9 output $primary_screen
+workspace 10 output $primary_screen
 
 
 # ============================================================================
@@ -109,7 +112,10 @@ set $right l
 set $term foot -f "JetBrainsMono Nerd Font Mono:size=16" \
   -o "colors.foreground=$fg" \
   -o "colors.background=$bg" \
-  -o "colors.alpha=0.95"
+  -o "colors.alpha=0.95" 
+
+set $term_with_btop $term -e "btop"
+set $term_with_yazi $term -e "yazi"
 
 # $menu: Fuzzel application launcher with theme colors
 set $menu fuzzel -f "JetBrainsMonoNerdFont Mono:size=14" \
@@ -169,6 +175,8 @@ input "type:keyboard" xkb_layout "pl"
 
 # --- Basic ---
 bindsym $mod+Return exec $term
+bindsym $mod+o exec $term_with_btop
+bindsym $mod+n exec $term_with_yazi
 bindsym $mod+q kill
 bindsym $mod+y exec $browser
 bindsym $mod+p exec keepassxc
@@ -278,7 +286,6 @@ bindsym $mod+r mode "resize"
 assign [app_id="foot"] 3
 assign [app_id="thunar"] 4
 assign [app_id="librewolf"] 1
-assign [app_id="org.keepassxc.KeePassXC"] 10
 
 # ============================================================================
 # STATUS BAR (BUMBLEBEE-STATUS)
